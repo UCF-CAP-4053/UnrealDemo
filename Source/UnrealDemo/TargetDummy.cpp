@@ -11,7 +11,7 @@ ATargetDummy::ATargetDummy() : WaypointIndex(0)
 
 }
 
-ATargetPoint* ATargetDummy::GetWaypoint()
+ATargetPoint* ATargetDummy::GetNextWaypoint()
 {
 	auto waypoint = Waypoints[WaypointIndex++];
 	WaypointIndex %= Waypoints.Num();
