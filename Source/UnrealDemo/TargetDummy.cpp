@@ -4,11 +4,18 @@
 #include "TargetDummy.h"
 
 // Sets default values
-ATargetDummy::ATargetDummy()
+ATargetDummy::ATargetDummy() : WaypointIndex(0)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+}
+
+ATargetPoint* ATargetDummy::GetWaypoint()
+{
+	auto waypoint = Waypoints[WaypointIndex++];
+	WaypointIndex %= Waypoints.Num();
+	return waypoint;
 }
 
 // Called when the game starts or when spawned
